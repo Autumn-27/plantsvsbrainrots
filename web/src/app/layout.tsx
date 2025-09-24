@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -48,6 +49,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-X8CR0748D1" />
+        <Script id="ga-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);} 
+            gtag('js', new Date());
+            gtag('config', 'G-X8CR0748D1');
+          `}
+        </Script>
+        <Script
+          src="https://sdxggrhbn.bentoblocksgame.com/api/script.js"
+          strategy="afterInteractive"
+          data-site-id="8"
+        />
         <div className="min-h-screen flex flex-col">
           <SiteHeader />
           <div className="flex-1">
