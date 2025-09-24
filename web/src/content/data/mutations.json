@@ -1,0 +1,19 @@
+{
+  "plantDamageMultipliers": {
+    "normal": 1.0,
+    "gold": 2.0,
+    "diamond": 3.0,
+    "neon": 4.5,
+    "frozen": { "multiplier": 4.0, "freezeSeconds": 0.3 }
+  },
+  "brainrotIncomeMultipliers": {
+    "normal": 1.0,
+    "gold": 2.0,
+    "diamond": 3.0,
+    "neon": 4.5,
+    "frozen": 4.0
+  },
+  "weightRule": "income ≈ basePerSec × multiplier × (weightKg / 10.0)"
+}
+
+

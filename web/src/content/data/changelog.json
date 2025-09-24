@@ -1,0 +1,82 @@
+[
+  {
+    "date": "2025-09-20",
+    "title": "New Events, Brainrots, Mutations & More",
+    "highlights": [
+      "Added Cosmic Bloom / Prismatic Surge / Gilded Awakening events",
+      "Exclusive event brainrots and mutations",
+      "New plant: Tomatrio, Gear: Frost Grenade"
+    ]
+  },
+  {
+    "date": "2025-09-18",
+    "title": "Weapons, QoL, Fixes",
+    "highlights": [
+      "Melee weapon added",
+      "Auto-collect brainrot cash on pickup",
+      "Pity spawn notification"
+    ]
+  },
+  {
+    "date": "2025-09-12",
+    "title": "Fuse Machine + Potions",
+    "highlights": [
+      "Fuse Machine: fuse plants with specific brainrots for limited-time combos",
+      "10 new epic brainrots via the machine",
+      "Potions added (shop or random drops)",
+      "Inventory shows damage or $/s on click"
+    ]
+  },
+  {
+    "date": "2025-09-08",
+    "title": "Rebirths Update",
+    "highlights": [
+      "Rebirths enabled + island expansion (2 rebirths)",
+      "New plant: Mr. Carrot",
+      "Lucky Eggs and Meme Lucky Block",
+      "5 new brainrots"
+    ]
+  },
+  {
+    "date": "2025-09-07",
+    "title": "Minor Balance + Performance",
+    "highlights": [
+      "Adjusted brainrot money/s (halved) for balance",
+      "Major lag fixes and performance settings",
+      "Rainbow visual lag fixes; Rainbow → Neon rename"
+    ]
+  },
+  {
+    "date": "2025-09-05",
+    "title": "Minor Improvements",
+    "highlights": [
+      "Restored Seeds/Garden/Sell TP buttons",
+      "Hovering over plants shows damage",
+      "Fixed mutation not boosting brainrot income",
+      "Admin panel finalized"
+    ]
+  },
+  {
+    "date": "2025-09-04",
+    "title": "Game Revamp",
+    "highlights": [
+      "New map and islands: personal road & brainrots",
+      "Place brainrots on platforms for money; buy more platforms",
+      "Offline income for brainrots; unified island leaderboard",
+      "Economy rebalanced (higher prices as brainrots earn more)"
+    ]
+  },
+  {
+    "date": "2025-09-01",
+    "title": "Update 1 — Freeze Event & Frozen Mutation",
+    "highlights": [
+      "Limited-time Freeze Event each hour",
+      "New Frozen mutation (plants freeze briefly; frozen brainrots immune)",
+      "New plant: Carnivorous Plant",
+      "4 new brainrots; Lucky Wheel; +25% Money group reward",
+      "Quality-of-life: notifications, AFK, seed stock fix, size up to 200x"
+    ]
+  }
+]
+
+

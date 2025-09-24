@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --background: #12151d; /* brighter dark */
+  --foreground: #eef2f7; /* softer light */
+  --brand: #60a5fa; /* calmer blue */
+  --brand-2: #94a3b8; /* slate */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Force dark-first aesthetic for consistent brand look */
+
+body {
+  /* Solid + Gradient (deep blue -> near-black), no texture */
+  background: linear-gradient(135deg, #0e1525 0%, #0b101c 55%, #090d14 100%);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* helpers */
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+}
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 text-white bg-[color:var(--brand)] hover:brightness-110 active:brightness-95;
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 border border-white/15 text-white/90 hover:bg-white/5;
+}
+.card {
+  @apply rounded-xl border border-white/12 bg-white/[0.08] shadow-sm;
+}
+
+/* Form controls (dark theme legibility) */
+select, input, textarea {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #eef2f7;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+select:focus, input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.35);
+  border-color: rgba(96, 165, 250, 0.55);
+}
+::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Native select dropdown options (force readable menu on dark) */
+select, option {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+/* elevated content panel */
+.surface {
+  @apply rounded-2xl border border-white/10 bg-white/[0.06] shadow-sm;
+}
