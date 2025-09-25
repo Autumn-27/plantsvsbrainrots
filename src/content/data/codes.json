@@ -1,9 +1,21 @@
 {
   "lastUpdated": "2025-09-01",
   "active": [
-    { "code": "based", "reward": "5000 cash", "dateAdded": "2025-09-09" }
+    {
+      "code": "based",
+      "reward": "5000 cash",
+      "dateAdded": "2025-09-09"
+    },
+    {
+      "code": "STACKS",
+      "reward": "1 lucky potion",
+      "dateAdded": "2025-09-25"
+    },
+    {
+      "code": "frozen",
+      "reward": "1 frost grenade",
+      "dateAdded": "2025-09-25"
+    }
   ],
   "expired": []
 }
-
-
