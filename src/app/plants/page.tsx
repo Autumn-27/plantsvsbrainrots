@@ -1,4 +1,5 @@
 import plants from "@/content/data/plants.json";
+import ImageWithFallback from "@/components/ImageWithFallback";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,6 +12,12 @@ export const metadata: Metadata = {
 export const dynamic = "force-static";
 
 export default function PlantsPage() {
+  const formatMoney = (n: number) => {
+    if (n >= 1_000_000_000) return `${(n / 1_000_000_000).toFixed(2).replace(/\.00$/, '')}b`;
+    if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(2).replace(/\.00$/, '')}m`;
+    if (n >= 1_000) return `${(n / 1_000).toFixed(2).replace(/\.00$/, '')}k`;
+    return `$${n.toLocaleString()}`;
+  };
   return (
     <main className="px-5 py-8 mx-auto max-w-6xl">
       <h1 className="text-2xl md:text-3xl font-bold">Plants — Stats & Costs</h1>
@@ -22,7 +29,7 @@ export default function PlantsPage() {
         <table className="w-full text-left text-sm">
           <thead className="border-b border-white/10">
             <tr>
-              <th className="py-2 pr-3">Name</th>
+              <th className="py-2 pr-3 text-center">Name</th>
               <th className="py-2 pr-3">Rarity</th>
               <th className="py-2 pr-3">Seed Cost</th>
               <th className="py-2 pr-3">Base Damage</th>
@@ -31,9 +38,20 @@ export default function PlantsPage() {
           <tbody className="divide-y divide-white/10">
             {plants.map((p, i) => (
               <tr key={p.slug} className={i % 2 === 0 ? "bg-white/[.02]" : "bg-transparent"}>
-                <td className="py-2 pr-3">{p.name}</td>
+                <td className="py-3 pr-3">
+                  <div className="flex flex-col items-center gap-2 min-w-[180px]">
+                    <ImageWithFallback
+                      src={`/plants/${p.slug}.webp`}
+                      alt={`${p.name} image`}
+                      width={128}
+                      height={128}
+                      className="h-24 w-24 md:h-32 md:w-32 rounded-lg object-cover border border-white/10 shadow-sm"
+                    />
+                    <span className="text-sm font-medium text-white/90 text-center">{p.name}</span>
+                  </div>
+                </td>
                 <td className="py-2 pr-3"><RarityPill rarity={p.rarity} /></td>
-                <td className="py-2 pr-3">${p.seedCost.toLocaleString()}</td>
+                <td className="py-2 pr-3">{formatMoney(p.seedCost)}</td>
                 <td className="py-2 pr-3">{p.baseDamage}</td>
               </tr>
             ))}

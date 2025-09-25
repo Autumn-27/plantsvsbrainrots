@@ -1,5 +1,6 @@
 import brainrots from "@/content/data/brainrots.json";
 import mutations from "@/content/data/mutations.json";
+import ImageWithFallback from "@/components/ImageWithFallback";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -34,13 +35,24 @@ export default function BrainrotsPage() {
           <tbody className="divide-y divide-white/10">
             {brainrots.map((b, i) => (
               <tr key={b.slug} className={i % 2 === 0 ? "bg-white/[.02]" : "bg-transparent"}>
-                <td className="py-2 pr-3">{b.name}</td>
+                <td className="py-3 pr-3">
+                  <div className="flex flex-col items-center gap-2 min-w-[180px]">
+                    <ImageWithFallback
+                      src={`/brainrots/${b.slug}.webp`}
+                      alt={`${b.name} image`}
+                      width={128}
+                      height={128}
+                      className="h-24 w-24 md:h-32 md:w-32 rounded-lg object-cover border border-white/10 shadow-sm"
+                    />
+                    <span className="text-sm font-medium text-white/90 text-center">{b.name}</span>
+                  </div>
+                </td>
                 <td className="py-2 pr-3"><RarityPill rarity={b.rarity} /></td>
-                <td className="py-2 pr-3">${b.basePerSec.toLocaleString()}</td>
-                <td className="py-2 pr-3">${(b.basePerSec * (mutations.brainrotIncomeMultipliers.gold as number)).toLocaleString()}</td>
-                <td className="py-2 pr-3">${(b.basePerSec * (mutations.brainrotIncomeMultipliers.diamond as number)).toLocaleString()}</td>
-                <td className="py-2 pr-3">${(b.basePerSec * (mutations.brainrotIncomeMultipliers.neon as number)).toLocaleString()}</td>
-                <td className="py-2 pr-3">${(b.basePerSec * (mutations.brainrotIncomeMultipliers.frozen as number)).toLocaleString()}</td>
+                <td className="py-2 pr-3">{b.basePerSec != null ? `$${b.basePerSec.toLocaleString()}` : "?"}</td>
+                <td className="py-2 pr-3">{b.basePerSec != null ? `$${(b.basePerSec * (mutations.brainrotIncomeMultipliers.gold as number)).toLocaleString()}` : "?"}</td>
+                <td className="py-2 pr-3">{b.basePerSec != null ? `$${(b.basePerSec * (mutations.brainrotIncomeMultipliers.diamond as number)).toLocaleString()}` : "?"}</td>
+                <td className="py-2 pr-3">{b.basePerSec != null ? `$${(b.basePerSec * (mutations.brainrotIncomeMultipliers.neon as number)).toLocaleString()}` : "?"}</td>
+                <td className="py-2 pr-3">{b.basePerSec != null ? `$${(b.basePerSec * (mutations.brainrotIncomeMultipliers.frozen as number)).toLocaleString()}` : "?"}</td>
               </tr>
             ))}
           </tbody>

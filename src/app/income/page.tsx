@@ -12,7 +12,7 @@ export default function IncomeToolPage() {
     const mult = mutations.brainrotIncomeMultipliers as Record<string, number>;
     return entries.reduce((sum, e) => {
       const b = brainrots.find((x) => x.slug === e.slug);
-      if (!b) return sum;
+      if (!b || b.basePerSec == null) return sum;
       const m = mult[e.mutation] ?? 1;
       const weightFactor = e.weightKg / 10;
       return sum + b.basePerSec * m * weightFactor;
