@@ -73,6 +73,7 @@ function MyPvbTrades() {
                     })
                     if (!res.ok) throw new Error('Failed to update status')
                     setTrades(prev => prev.map(x => x.id === t.id ? { ...x, status: newStatus } : x))
+                  // eslint-disable-next-line @typescript-eslint/no-unused-vars
                   } catch (e) {
                     setError('Failed to update status')
                   }
@@ -90,6 +91,7 @@ function MyPvbTrades() {
                   const res = await fetch(`/api/pvb/trades/${t.id}`, { method: 'DELETE' })
                   if (!res.ok) throw new Error('Failed to delete')
                   setTrades(prev => prev.filter(x => x.id !== t.id))
+                  // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 } catch (e) {
                   setError('Failed to delete trade')
                 }

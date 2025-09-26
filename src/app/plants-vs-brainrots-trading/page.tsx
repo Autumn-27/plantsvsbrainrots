@@ -1,6 +1,5 @@
 export const runtime = 'edge'
 import { Metadata } from 'next'
-import Link from 'next/link'
 import TradingPageClient from './TradingPageClient'
 import { pvbListTrades, pvbGetTradeById } from '@/lib/pvb/d1'
 import PublishTradeButton from './PublishTradeButton'

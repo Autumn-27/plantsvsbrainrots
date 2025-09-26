@@ -51,8 +51,8 @@ export async function GET(req: NextRequest) {
       normalLt: normalLt ? Number(normalLt) : undefined,
     })
     return NextResponse.json(items)
-  } catch (err: any) {
-    return NextResponse.json({ error: err?.message || 'internal error' }, { status: 500 })
+  } catch (err: unknown) {
+    return NextResponse.json({ error: err instanceof Error ? err.message : 'internal error' }, { status: 500 })
   }
 }
 
@@ -62,7 +62,7 @@ export async function POST(req: NextRequest) {
     if (!user) return NextResponse.json({ error: 'unauthorized' }, { status: 401 })
     const userId = user.id
 
-    const body = (await req.json()) as any
+    const body = (await req.json()) as Record<string, unknown>
     const remark: string | null = body.remark ? String(body.remark).slice(0, 200) : null
     const have = Array.isArray(body?.have) ? body.have : []
     const want = Array.isArray(body?.want) ? body.want : []
@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
     if (!have.length || !want.length) return NextResponse.json({ error: 'need at least one have and one want' }, { status: 400 })
     if (have.length > 10 || want.length > 10) return NextResponse.json({ error: 'item limit exceeded' }, { status: 400 })
 
-    const normalizeItem = (it: any) => {
+    const normalizeItem = (it: Record<string, unknown>) => {
       const category: PvbTradeItemCategory = it?.category === 'brainrot' ? 'brainrot' : 'plant'
       const item_id = typeof it?.item_id === 'string' ? it.item_id : String(it?.item_id ?? '')
       const mutations = it?.mutations != null ? String(it.mutations) : null
@@ -85,14 +85,14 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const haveN = have.map(normalizeItem).filter((x: any) => x.item_id)
-    const wantN = want.map(normalizeItem).filter((x: any) => x.item_id)
+    const haveN = have.map(normalizeItem).filter((x) => x.item_id)
+    const wantN = want.map(normalizeItem).filter((x) => x.item_id)
     if (!haveN.length || !wantN.length) return NextResponse.json({ error: 'invalid items' }, { status: 400 })
 
     const { tradeId } = await pvbCreateTrade({ userId, remark, have: haveN, want: wantN })
     return NextResponse.json({ success: true, trade_id: tradeId })
-  } catch (err: any) {
-    return NextResponse.json({ error: err?.message || 'internal error' }, { status: 500 })
+  } catch (err: unknown) {
+    return NextResponse.json({ error: err instanceof Error ? err.message : 'internal error' }, { status: 500 })
   }
 }
 

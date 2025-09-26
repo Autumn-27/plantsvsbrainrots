@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
@@ -33,7 +34,7 @@ export default function ItemsSelectorClient({ role, onChange, disableHidden }: {
   const [q, setQ] = useState('')
   const [stage, setStage] = useState<'list' | 'detail'>('list')
   const [pending, setPending] = useState<{ cat: Category; id: number; key: string; slug: string; name: string; img: string } | null>(null)
-  const [detail, setDetail] = useState<{ quantity: number; mutations: string[]; weight: string; age: string }>({ quantity: 1, mutations: [], weight: '', age: '' })
+  const [detail, setDetail] = useState<{ quantity: number; mutations: string[]; weight: string; age: string; damage?: string; normal?: string }>({ quantity: 1, mutations: [], weight: '', age: '' })
   const [mounted, setMounted] = useState(false)
 
   const reset = () => setItems([])
@@ -72,32 +73,35 @@ const addItem = (cat: Category, id: number, key: string, name: string, mutations
 
   const removeAt = (idx: number) => setItems(prev => prev.filter((_, i) => i !== idx))
 
-  const updateItem = (idx: number, patch: Partial<SelectedItem>) => {
-    setItems(prev => prev.map((it, i) => (i === idx ? { ...it, ...patch } : it)))
-  }
 
   // Build catalogs with correct image URLs and keys
   const plantCatalog = useMemo(() => (
-    (plantsData as any[]).map((p: any) => ({
-      id: p.id,
-      key: String(p.id),
-      slug: String(p.slug || p.id),
-      name: p.name,
-      img: `/plants/${p.slug}.webp`,
-    }))
+    (plantsData as unknown[]).map((p: unknown) => {
+      const plant = p as { id: number; slug?: string; name: string }
+      return {
+        id: plant.id,
+        key: String(plant.id),
+        slug: String(plant.slug || plant.id),
+        name: plant.name,
+        img: `/plants/${plant.slug}.webp`,
+      }
+    })
   ), [])
   const brainrotCatalog = useMemo(() => (
-    (brainrotsData as any[]).map((b: any) => ({
-      id: b.id,
-      key: String(b.id),
-      slug: String(b.slug || b.id),
-      name: b.name,
-      img: `/brainrots/${b.slug}.webp`,
-    }))
+    (brainrotsData as unknown[]).map((b: unknown) => {
+      const brainrot = b as { id: number; slug?: string; name: string }
+      return {
+        id: brainrot.id,
+        key: String(brainrot.id),
+        slug: String(brainrot.slug || brainrot.id),
+        name: brainrot.name,
+        img: `/brainrots/${brainrot.slug}.webp`,
+      }
+    })
   ), [])
 
   const baseList = tab === 'plant' ? plantCatalog : brainrotCatalog
-  const list = baseList.filter((x: any) => (
+  const list = baseList.filter((x) => (
     x.name.toLowerCase().includes(q.toLowerCase().trim()) || String(x.key).toLowerCase().includes(q.toLowerCase().trim())
   ))
 
@@ -130,8 +134,8 @@ const addItem = (cat: Category, id: number, key: string, name: string, mutations
           <span className="ml-1 text-xs px-1.5 py-0.5 rounded-full bg-white/10 text-white">{items.length}</span>
         </div>
         <div className="flex items-center gap-2">
-          <button type="button" onClick={reset} disabled={!items.length} className="px-3 py-1.5 rounded-xl bg-white/10 text-white hover:bg-white/15 disabled:opacity-50 disabled:cursor-not-allowed transition">Reset</button>
-          <button type="button" onClick={() => setOpen(true)} className="px-3 py-1.5 rounded-xl bg-white/10 text-white hover:bg-white/15 transition">Add item</button>
+          <button type="button" onClick={reset} disabled={!items.length} className="px-3 py-1.5 rounded-xl bg-gray-600 text-white hover:bg-gray-500 disabled:opacity-50 disabled:cursor-not-allowed transition">Reset</button>
+          <button type="button" onClick={() => setOpen(true)} className="px-3 py-1.5 rounded-xl bg-blue-600 text-white hover:bg-blue-500 transition">Add item</button>
         </div>
       </div>
 
@@ -140,7 +144,7 @@ const addItem = (cat: Category, id: number, key: string, name: string, mutations
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="group w-44 h-44 md:w-56 md:h-56 rounded-2xl border-2 border-dashed border-white/15 flex flex-col items-center justify-center text-white/70 transition hover:border-white/30 bg-[#141824]/40 hover:bg-[#141824]/60"
+            className="group w-44 h-44 md:w-56 md:h-56 rounded-2xl border-2 border-dashed border-gray-500/50 flex flex-col items-center justify-center text-gray-300 transition hover:border-gray-400 bg-gray-800/40 hover:bg-gray-800/60"
           >
             <span className="text-3xl leading-none mb-2 text-white/70">+</span>
             <span className="text-sm text-white/80 group-hover:text-white">Add item</span>
@@ -151,8 +155,8 @@ const addItem = (cat: Category, id: number, key: string, name: string, mutations
       {items.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {items.map((it, idx) => (
-            <div key={idx} className="rounded-2xl p-3 transition hover:shadow-md bg-white/5 border border-white/10">
-              <div className="mt-2 w-full h-24 rounded-xl overflow-hidden flex items-center justify-center bg-white/5">
+            <div key={idx} className="rounded-2xl p-3 transition hover:shadow-md bg-gray-700/30 border border-gray-600/30">
+              <div className="mt-2 w-full h-24 rounded-xl overflow-hidden flex items-center justify-center bg-gray-700/30">
                 <ImageWithFallback src={it.category === 'plant' ? `/plants/${it.plantSlug || it.item_id}.webp` : `/brainrots/${it.brainrotSlug || it.item_id}.webp`} alt={it.name} width={96} height={96} className="h-24 w-24 rounded-lg object-cover border border-white/10" />
               </div>
               <div className="mt-3 flex items-center gap-2 text-base font-semibold text-white">
@@ -235,7 +239,7 @@ const addItem = (cat: Category, id: number, key: string, name: string, mutations
                     <button
                       key={`${tab}-${item.id}`}
                       type="button"
-                      onClick={() => { setPending({ cat: tab, id: item.id, key: item.key, slug: (item as any).slug, name: item.name, img: item.img }); setStage('detail') }}
+                      onClick={() => { setPending({ cat: tab, id: item.id, key: item.key, slug: item.slug, name: item.name, img: item.img }); setStage('detail') }}
                       className="text-left p-2 rounded-3xl transition hover:shadow"
                       style={{ backgroundColor: '#2F3133', border: '1px solid #3A3B3C' }}
                     >
@@ -280,16 +284,16 @@ const addItem = (cat: Category, id: number, key: string, name: string, mutations
                     {pending.cat === 'plant' && (
                       <div className="rounded-2xl p-3 bg-slate-800/50 border border-slate-600/30">
                         <label className="block text-xs mb-1 text-slate-300">Damage (plants)</label>
-                        <input type="number" value={(detail as any).damage || ''}
-                          onChange={e=>setDetail(d=>({ ...(d as any), damage: e.target.value }))}
+                        <input type="number" value={detail.damage || ''}
+                          onChange={e=>setDetail(d=>({ ...d, damage: e.target.value }))}
                           className="w-full rounded-xl border border-slate-500/50 bg-slate-700/50 text-white px-2 py-2 placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50" placeholder="Damage" />
                       </div>
                     )}
                     {pending.cat === 'brainrot' && (
                       <div className="rounded-2xl p-3 bg-slate-800/50 border border-slate-600/30">
                         <label className="block text-xs mb-1 text-slate-300">Normal (brainrots)</label>
-                        <input type="number" value={(detail as any).normal || ''}
-                          onChange={e=>setDetail(d=>({ ...(d as any), normal: e.target.value }))}
+                        <input type="number" value={detail.normal || ''}
+                          onChange={e=>setDetail(d=>({ ...d, normal: e.target.value }))}
                           className="w-full rounded-xl border border-slate-500/50 bg-slate-700/50 text-white px-2 py-2 placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50" placeholder="Normal" />
                       </div>
                     )}
@@ -309,7 +313,7 @@ const addItem = (cat: Category, id: number, key: string, name: string, mutations
                 </div>
                 <div className="px-4 pb-4 flex items-center justify-end gap-2">
                   <button type="button" onClick={() => { setStage('list'); setPending(null) }} className="px-3 py-1.5 rounded-full bg-gray-800 text-gray-200">Cancel</button>
-                  <button type="button" onClick={() => addItem(pending.cat, pending.id, pending.key, pending.name, detail.mutations, detail.weight, (pending.cat==='plant' ? (detail as any).damage : (detail as any).normal), pending.slug)} className="px-3 py-1.5 rounded-full bg-white text-gray-900 shadow hover:shadow-md">Add</button>
+                  <button type="button" onClick={() => addItem(pending.cat, pending.id, pending.key, pending.name, detail.mutations, detail.weight, (pending.cat==='plant' ? detail.damage : detail.normal), pending.slug)} className="px-3 py-1.5 rounded-full bg-white text-gray-900 shadow hover:shadow-md">Add</button>
                 </div>
               </>
             )}

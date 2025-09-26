@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import { TradeDetailButton } from './TradeDetailButton'
 import type { PvbTradeDTO } from './types/item'
