@@ -9,7 +9,8 @@ const nav = [
   { href: "/codes", label: "Codes" },
   { href: "/changelog", label: "Changelog" },
   { href: "/income", label: "Income" },
-  { href: "/roi", label: "ROI" }
+  { href: "/roi", label: "ROI" },
+  { href: "/plants-vs-brainrots-trading", label: "Trading" }
 ];
 
 export function SiteHeader() {
