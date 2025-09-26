@@ -11,9 +11,11 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
-    "next": "15.5.4",
+    "jose": "^6.1.0",
+    "next": "15.5.2",
     "next-seo": "^6.8.0",
     "next-sitemap": "^4.2.3",
     "react": "19.1.0",
@@ -21,6 +23,7 @@
     "zod": "^4.1.11"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250926.0",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",

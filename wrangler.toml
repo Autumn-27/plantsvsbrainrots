@@ -1,0 +1,11 @@
+# wrangler.toml
+name = "game-toolkit"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "playgohub"
+database_id = "8bb93a4a-8aa6-4c29-beb3-63113364a501"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "__KV_NAMESPACE_ID__"

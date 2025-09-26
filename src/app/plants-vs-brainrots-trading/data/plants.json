@@ -1,0 +1,88 @@
+[
+  {
+    "name": "Any",
+    "slug": "any",
+    "rarity": "Rare",
+    "seedCost": 200,
+    "baseDamage": 10
+  },
+  {
+    "name": "Cactus",
+    "slug": "cactus",
+    "rarity": "Rare",
+    "seedCost": 200,
+    "baseDamage": 10
+  },
+  {
+    "name": "Strawberry",
+    "slug": "strawberry",
+    "rarity": "Rare",
+    "seedCost": 1250,
+    "baseDamage": 25
+  },
+  {
+    "name": "Pumpkin",
+    "slug": "pumpkin",
+    "rarity": "Epic",
+    "seedCost": 5000,
+    "baseDamage": 55
+  },
+  {
+    "name": "Sunflower",
+    "slug": "sunflower",
+    "rarity": "Epic",
+    "seedCost": 25000,
+    "baseDamage": 115
+  },
+  {
+    "name": "Dragon Fruit",
+    "slug": "dragon-fruit",
+    "rarity": "Legendary",
+    "seedCost": 100000,
+    "baseDamage": 250
+  },
+  {
+    "name": "Eggplant",
+    "slug": "eggplant",
+    "rarity": "Legendary",
+    "seedCost": 250000,
+    "baseDamage": 500
+  },
+  {
+    "name": "Watermelon",
+    "slug": "watermelon",
+    "rarity": "Mythic",
+    "seedCost": 1000000,
+    "baseDamage": 750
+  },
+  {
+    "name": "Cocotank",
+    "slug": "cocotank",
+    "rarity": "Godly",
+    "seedCost": 5000000,
+    "baseDamage": 1200
+  },
+  {
+    "name": "Carnivorous Plant",
+    "slug": "carnivorous-plant",
+    "rarity": "Godly",
+    "seedCost": 25000000,
+    "baseDamage": 2200
+  },
+  {
+    "name": "Mr. Carrot",
+    "slug": "mr-carrot",
+    "rarity": "Secret",
+    "seedCost": 50000000,
+    "baseDamage": 3500
+  },
+  {
+    "name": "Tomatrio",
+    "slug": "tomatrio",
+    "rarity": "Secret",
+    "seedCost": 125000000,
+    "baseDamage": 7600
+  }
+]
+
+
