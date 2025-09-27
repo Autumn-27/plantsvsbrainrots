@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState, memo } from 'react'
-import type { PvbTradeDTO } from '@/app/plants-vs-brainrots-trading/types/item'
-import { TradeCard } from '@/app/plants-vs-brainrots-trading/TradeCard'
+import type { PvbTradeDTO } from '@/app/trading/types/item'
+import { TradeCard } from '@/app/trading/TradeCard'
 
 function MyPvbTrades() {
   const [trades, setTrades] = useState<PvbTradeDTO[]>([])

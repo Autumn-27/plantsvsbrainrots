@@ -75,7 +75,7 @@ export default function TradeFormClient() {
         setSubmitting(false)
         return
       }
-      router.push('/plants-vs-brainrots-trading')
+      router.push('/trading')
     } finally {
       setSubmitting(false)
     }

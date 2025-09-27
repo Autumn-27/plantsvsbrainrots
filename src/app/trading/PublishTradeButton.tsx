@@ -13,7 +13,7 @@ export default function PublishTradeButton() {
       return
     }
     
-    router.push('/plants-vs-brainrots-trading/new')
+    router.push('/trading/new')
   }
 
   return (

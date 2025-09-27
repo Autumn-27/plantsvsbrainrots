@@ -57,10 +57,6 @@ export default function TradeIdSearch({ onRefresh }: TradeIdSearchProps) {
     router.push(`?${params.toString()}`)
   }
 
-  const clearTradeId = () => {
-    setTradeId('')
-    updateURL('')
-  }
 
   return (
     <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-6">
