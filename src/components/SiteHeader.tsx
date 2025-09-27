@@ -5,6 +5,7 @@ import { getUserInfo, clearUserInfo, type UserInfo } from "@/lib/user";
 const nav = [
   { href: "/plants", label: "Plants" },
   { href: "/brainrots", label: "Brainrots" },
+  { href: "/gears", label: "Gears" },
   { href: "/fuse-recipes", label: "Fuse" },
   { href: "/codes", label: "Codes" },
   { href: "/changelog", label: "Changelog" },

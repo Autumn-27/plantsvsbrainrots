@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Bat",
+    "slug": "bat",
+    "rarity": "Common",
+    "price": 0,
+    "description": "Does 20 damage to brainrots.",
+    "category": "weapon",
+    "damage": 20,
+    "priority": "optional"
+  },
+  {
+    "name": "Banana Gun",
+    "slug": "banana-gun",
+    "rarity": "Epic",
+    "price": 25000,
+    "description": "Shoot brainrots to demage them! (100 DMG)",
+    "category": "weapon",
+    "damage": 100,
+    "priority": "recommended"
+  },
+  {
+    "name": "Carrot Launcher",
+    "slug": "carrot-launcher",
+    "rarity": "Godly",
+    "price": 500000,
+    "description": "Shoot brainrots to demage them or players to fling them! (500 DMG)",
+    "category": "weapon",
+    "damage": 500,
+    "priority": "luxury"
+  },
+  {
+    "name": "Frost Grenade",
+    "slug": "frost-grenade",
+    "rarity": "Epic",
+    "price": 12500,
+    "description": "Throw to stun brainrots!",
+    "category": "utility",
+    "effect": "stun",
+    "priority": "essential"
+  },
+  {
+    "name": "Frost Blower",
+    "slug": "frost-blower",
+    "rarity": "Legendary",
+    "price": 125000,
+    "description": "Freeze brainrots and slow them down by 50%!",
+    "category": "utility",
+    "effect": "freeze",
+    "priority": "recommended"
+  },
+  {
+    "name": "Water Bucket",
+    "slug": "water-bucket",
+    "rarity": "Epic",
+    "price": 7500,
+    "description": "Splash on plants to make them grow 25% faster.",
+    "category": "utility",
+    "effect": "growth_boost",
+    "priority": "optional"
+  },
+  {
+    "name": "Lucky Potion",
+    "slug": "lucky-potion",
+    "rarity": "Legendary",
+    "price": "?",
+    "description": "Increases luck for better mutations and rare spawns. Stack with Speed Potion for maximum effect.",
+    "category": "potion",
+    "effect": "luck_boost",
+    "priority": "recommended"
+  },
+  {
+    "name": "Speed Potion",
+    "slug": "speed-potion",
+    "rarity": "Legendary",
+    "price": "?",
+    "description": "Increases movement and action speed. Best used in combination with Lucky Potion.",
+    "category": "potion",
+    "effect": "speed_boost",
+    "priority": "recommended"
+  }
+]
