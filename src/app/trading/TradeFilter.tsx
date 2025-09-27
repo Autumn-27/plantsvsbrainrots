@@ -178,7 +178,6 @@ export default function TradeFilter() {
                       const isPlant = (plantsData as any[]).some((p: any) => String(p.id) === itemId)
                       const category = isPlant ? 'plant' : 'brainrot'
                       const name = getItemName(category, itemId)
-                      const image = imageUrl(category, itemId)
                       
                       return (
                         <div key={itemId} className="flex items-center bg-gray-700 rounded-md px-2 py-1 text-xs">
@@ -216,7 +215,6 @@ export default function TradeFilter() {
                       const isPlant = (plantsData as any[]).some((p: any) => String(p.id) === itemId)
                       const category = isPlant ? 'plant' : 'brainrot'
                       const name = getItemName(category, itemId)
-                      const image = imageUrl(category, itemId)
                       
                       return (
                         <div key={itemId} className="flex items-center bg-gray-700 rounded-md px-2 py-1 text-xs">
