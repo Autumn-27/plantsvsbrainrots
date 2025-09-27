@@ -5,7 +5,9 @@ import { pvbListTrades, pvbGetTradeById } from '@/lib/pvb/d1'
 import PublishTradeButton from './PublishTradeButton'
 
 export const metadata: Metadata = {
-  title: 'Plants vs Brainrots Trading Plants/Brainrots',
+  title: {
+    absolute: 'Plants vs Brainrots Trading'
+  },
   description: 'Trade your Plants and Brainrots with other players. Find the perfect match for your collection!',
 }
 
