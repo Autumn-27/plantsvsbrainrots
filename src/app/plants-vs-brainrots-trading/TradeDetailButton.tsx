@@ -40,7 +40,7 @@ function TradeItemCard({ item, isLastRow = false }: { item: any; isLastRow?: boo
         <div className={"text-[11px] " + (item.category === 'brainrot' ? 'text-purple-400' : 'text-green-400')}>{item.category === 'brainrot' ? 'Brainrot' : 'Plant'}</div>
       </div>
       <div className="mt-1 text-center text-[11px] text-gray-400">
-        {item.category === 'plant' && item.weight != null && <span>{item.weight} kg</span>}
+      {item.weight != null && <span>{item.weight} kg</span>}
         {item.category === 'plant' && item.damage != null && <span className="ml-1">DMG {item.damage}</span>}
         {item.category === 'brainrot' && item.normal != null && <span className="ml-1">Normal {item.normal}</span>}
       </div>

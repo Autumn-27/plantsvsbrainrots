@@ -57,7 +57,7 @@ const addItem = (cat: Category, id: number, key: string, name: string, mutations
       item_id: key,
         name,
         quantity: detail.quantity || 1,
-      weight: cat === 'plant' ? (weight ? Number(weight) : null) : null,
+        weight: weight ? Number(weight) : null,
       damage: cat === 'plant' ? (damageOrNormal && damageOrNormal !== '' ? Number(damageOrNormal) : null) : undefined,
       normal: cat === 'brainrot' ? (damageOrNormal && damageOrNormal !== '' ? Number(damageOrNormal) : null) : undefined,
       plantSlug: cat === 'plant' ? extraSlug : undefined,
@@ -276,7 +276,7 @@ const addItem = (cat: Category, id: number, key: string, name: string, mutations
                       className="w-full rounded-xl border border-slate-500/50 bg-slate-700/50 text-white px-2 py-2 placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50" placeholder="Quantity" />
                   </div>
                     <div className="rounded-2xl p-3 bg-slate-800/50 border border-slate-600/30">
-                      <label className="block text-xs mb-1 text-slate-300">Weight (plants)</label>
+                      <label className="block text-xs mb-1 text-slate-300">Weight (kg)</label>
                       <input type="number" step="0.01" value={detail.weight}
                         onChange={e=>setDetail(d=>({ ...d, weight: e.target.value }))}
                         className="w-full rounded-xl border border-slate-500/50 bg-slate-700/50 text-white px-2 py-2 placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50" placeholder="Weight" />

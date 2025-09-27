@@ -65,10 +65,10 @@ export default function TradeIdSearch({ onRefresh }: TradeIdSearchProps) {
   return (
     <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-6">
       <div className="flex-1"><TradeFilter /></div>
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 lg:flex-shrink-0 w-full">
-        <div className="flex items-center space-x-2 w-full sm:w-auto">
+      <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 lg:flex-shrink-0 w-full md:w-auto">
+        <div className="flex items-center space-x-2 w-full md:w-auto">
           <label className="text-sm text-white/80 whitespace-nowrap">DMG:</label>
-          <div className="flex items-center bg-[#141824]/60 border border-white/10 rounded-lg overflow-hidden w-full sm:w-auto">
+          <div className="flex items-center bg-[#141824]/60 border border-white/10 rounded-lg overflow-hidden w-full md:w-auto">
             <button
               type="button"
               onClick={() => setDmgOp(dmgOp === '>' ? '<' : '>')}
@@ -81,13 +81,13 @@ export default function TradeIdSearch({ onRefresh }: TradeIdSearchProps) {
               value={dmgVal} 
               onChange={(e)=>{ setDmgVal(e.target.value) }} 
               placeholder="10" 
-              className="px-3 py-2 bg-transparent text-white text-sm placeholder:text-white/50 focus:outline-none w-full sm:w-20 flex-1 min-w-0" 
+              className="px-3 py-2 bg-transparent text-white text-sm placeholder:text-white/50 focus:outline-none w-full md:w-20 flex-1 min-w-0" 
             />
           </div>
         </div>
-        <div className="flex items-center space-x-2 w-full sm:w-auto">
+        <div className="flex items-center space-x-2 w-full md:w-auto">
           <label className="text-sm text-white/80 whitespace-nowrap">Normal:</label>
-          <div className="flex items-center bg-[#141824]/60 border border-white/10 rounded-lg overflow-hidden w-full sm:w-auto">
+          <div className="flex items-center bg-[#141824]/60 border border-white/10 rounded-lg overflow-hidden w-full md:w-auto">
             <button
               type="button"
               onClick={() => setNormalOp(normalOp === '>' ? '<' : '>')}
@@ -100,25 +100,25 @@ export default function TradeIdSearch({ onRefresh }: TradeIdSearchProps) {
               value={normalVal} 
               onChange={(e)=>{ setNormalVal(e.target.value) }} 
               placeholder="5" 
-              className="px-3 py-2 bg-transparent text-white text-sm placeholder:text-white/50 focus:outline-none w-full sm:w-20 flex-1 min-w-0" 
+              className="px-3 py-2 bg-transparent text-white text-sm placeholder:text-white/50 focus:outline-none w-full md:w-20 flex-1 min-w-0" 
             />
           </div>
         </div>
-        <div className="flex items-center space-x-1 sm:space-x-2 w-full sm:w-auto">
+        <div className="flex items-center space-x-1 sm:space-x-2 w-full md:w-auto">
           <label className="text-sm text-gray-300 whitespace-nowrap">ID:</label>
           <input
             type="text"
             value={tradeId}
             onChange={(e) => handleTradeIdChange(e.target.value)}
             placeholder="Enter ID..."
-            className="px-2 py-2 bg-gray-800 border border-gray-600 rounded-md text-white text-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 w-full sm:w-32"
+            className="px-2 py-2 bg-gray-800 border border-gray-600 rounded-md text-white text-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 w-full md:w-32"
           />
         </div>
-        <div className="flex items-center space-x-2 w-full sm:w-auto">
+        <div className="flex items-center space-x-2 w-full md:w-auto">
           <AutoRefreshSettings onRefresh={onRefresh || (() => window.location.reload())} />
         </div>
-        <div className="w-full sm:w-auto sm:ml-auto">
-          <button onClick={() => updateURL(tradeId)} className="px-3 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-500 w-full sm:w-auto">Search</button>
+        <div className="w-full md:w-auto md:ml-auto">
+          <button onClick={() => updateURL(tradeId)} className="px-3 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-500 w-full md:w-auto">Search</button>
         </div>
       </div>
     </div>

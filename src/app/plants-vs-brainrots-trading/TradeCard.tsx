@@ -61,7 +61,7 @@ function TradeItemCard({ item }: { item: any }) {
           <div className={"text-[10px] sm:text-xs whitespace-nowrap font-medium " + (item.category === 'brainrot' ? 'text-purple-300' : 'text-green-300')}>{item.category === 'brainrot' ? 'Brainrot' : 'Plant'}</div>
         </div>
         <div className="text-center flex justify-center space-x-1 text-[10px] text-slate-400 font-medium">
-          {item.category === 'plant' && item.weight != null && <span>{item.weight} kg</span>}
+        {item.weight != null && <span>{item.weight} kg</span>}
           {item.category === 'plant' && item.damage != null && <span>DMG {item.damage}</span>}
           {item.category === 'brainrot' && item.normal != null && <span>Normal {item.normal}</span>}
         </div>
