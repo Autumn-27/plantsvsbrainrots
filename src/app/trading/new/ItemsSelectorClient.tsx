@@ -173,7 +173,7 @@ const addItem = (cat: Category, id: number, key: string, name: string, mutations
               <div className="text-xs mt-0.5 text-white/70">{it.category === 'plant' ? 'Plant' : 'Brainrot'}</div>
               <div className="mt-2 flex flex-wrap items-center gap-2">
                 {typeof it.weight === 'number' && (
-                  <span className="px-2 py-1 rounded-full text-xs bg-white/10 text-white">{it.weight} kg</span>
+                  <span className="px-2 py-1 rounded-full text-xs bg-white/10 text-white">{it.weight} {it.category === 'plant' ? 'Size' : 'kg'}</span>
                 )}
                 {typeof it.damage === 'number' && it.category === 'plant' && (
                   <span className="px-2 py-1 rounded-full text-xs bg-white/10 text-white">DMG {it.damage}</span>
@@ -276,10 +276,10 @@ const addItem = (cat: Category, id: number, key: string, name: string, mutations
                       className="w-full rounded-xl border border-slate-500/50 bg-slate-700/50 text-white px-2 py-2 placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50" placeholder="Quantity" />
                   </div>
                     <div className="rounded-2xl p-3 bg-slate-800/50 border border-slate-600/30">
-                      <label className="block text-xs mb-1 text-slate-300">Weight (kg)</label>
+                      <label className="block text-xs mb-1 text-slate-300">{pending.cat === 'plant' ? 'Size' : 'Weight (kg)'}</label>
                       <input type="number" step="0.01" value={detail.weight}
                         onChange={e=>setDetail(d=>({ ...d, weight: e.target.value }))}
-                        className="w-full rounded-xl border border-slate-500/50 bg-slate-700/50 text-white px-2 py-2 placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50" placeholder="Weight" />
+                        className="w-full rounded-xl border border-slate-500/50 bg-slate-700/50 text-white px-2 py-2 placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50" placeholder={pending.cat === 'plant' ? 'Size' : 'Weight'} />
                     </div>
                     {pending.cat === 'plant' && (
                       <div className="rounded-2xl p-3 bg-slate-800/50 border border-slate-600/30">
