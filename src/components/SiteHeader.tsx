@@ -11,7 +11,8 @@ const nav = [
   { href: "/changelog", label: "Changelog" },
   { href: "/income", label: "Income" },
   { href: "/roi", label: "ROI" },
-  { href: "/trading", label: "Trading" }
+  { href: "/trading", label: "Trading" },
+  { href: "/stock", label: "Stock" }
 ];
 
 export function SiteHeader() {
